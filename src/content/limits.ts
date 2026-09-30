@@ -43,6 +43,8 @@ export const LIMITS: Record<string, number> = {
 
   "desk.h2": 48,
   "desk.lead": 160,
+  "desk.switchAi": 16,
+  "desk.switchHuman": 16,
   "desk.hint": 40, // added
   "desk.demo": 40,
   "desk.silent": 48, // added

@@ -199,7 +199,9 @@ export const en: Copy = {
 
   desk: {
     h2: "You decide who answers",
-    lead: "Every conversation is on one desk. The AI answers, but you take over with one tap and hand back with another.",
+    lead: "The AI answers. Switch it to yourself whenever you want.",
+    switchAi: "AI",
+    switchHuman: "Human",
     hint: "Try it: press “Take over”",
     demo: "Try it on our page in Messenger",
     silent: "The AI stays silent until you hand back",

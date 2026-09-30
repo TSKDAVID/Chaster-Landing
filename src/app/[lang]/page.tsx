@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { Analytics } from "@/components/Analytics";
-import { DaySplit } from "@/components/sections/DaySplit";
 import { DeskAnatomy } from "@/components/sections/DeskAnatomy";
 import { FaqThread } from "@/components/sections/FaqThread";
 import { FinalCall } from "@/components/sections/FinalCall";
@@ -50,7 +49,6 @@ export default async function LandingPage({ params }: { params: Promise<{ lang: 
         <Nav copy={copy} locale={lang} />
         <main id="main">
           <Hero copy={copy} locale={lang} />
-          <DaySplit copy={copy} />
           <DeskAnatomy copy={copy} />
           <Setup copy={copy} />
           <PlanBuilder copy={copy} />

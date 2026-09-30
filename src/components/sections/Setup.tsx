@@ -3,6 +3,7 @@ import type { Copy } from "@/content";
 import { fillTokens } from "@/lib/tokens";
 import { ArrowRight } from "../ui/Icons";
 import { CtaButton } from "../ui/CtaButton";
+import { CellField } from "../cell/CellField";
 import { SetupTimeline } from "./SetupTimeline";
 
 /**
@@ -14,6 +15,7 @@ export function Setup({ copy }: { copy: Copy }) {
   const s = copy.setup;
   return (
     <section id="setup" aria-labelledby="setup-h2" className="surface-ink sec sec--standard">
+      <CellField variant="edges" />
       <div className="wrap lg:grid lg:grid-cols-7 lg:gap-x-6 xl:gap-x-8">
         <div className="lg:col-span-3">
           <h2 id="setup-h2" className="t-h2">

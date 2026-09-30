@@ -93,6 +93,8 @@ export type Copy = {
   desk: {
     h2: string;
     lead: string;
+    switchAi: string;
+    switchHuman: string;
     hint: string;
     demo: string;
     silent: string;
