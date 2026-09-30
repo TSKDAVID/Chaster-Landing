@@ -2937,5 +2937,42 @@
     .hero .result {
       padding-top: 8px;
     }
+
+    .final {
+      padding-block: 24px 16px;
+    }
+    .final__lockup {
+      height: 56px;
+    }
+    .final__h2 {
+      margin-top: 14px;
+    }
+    .final__cta {
+      margin-top: 12px;
+    }
+    .final__note {
+      margin-top: 6px;
+    }
+    .final__rule {
+      margin: 14px 0 10px;
+    }
+    .final__alt-title {
+      margin-bottom: 8px;
+    }
+    .final__alt {
+      padding: 14px 22px;
+      gap: 24px;
+    }
+    /* side by side, not stacked, so the panel is only as tall as the QR code */
+    .final__channels {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      min-width: 0;
+    }
+    .final__qr svg {
+      width: 112px;
+      height: 112px;
+    }
   }
 }
