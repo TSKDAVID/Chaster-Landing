@@ -1,0 +1,52 @@
+name: Deploy to GitHub Pages
+
+# Builds the static export and publishes it at https://tskdavid.github.io/Chaster-Landing/
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAGES: "true"
+      # public values only; see .env.example
+      NEXT_PUBLIC_SITE_URL: https://tskdavid.github.io/Chaster-Landing
+      NEXT_PUBLIC_MESSENGER_URL: https://m.me/61575302790193
+      NEXT_PUBLIC_INSTAGRAM_URL: https://www.facebook.com/profile.php?id=61575302790193
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Checks (copy limits, brand geometry, types, lint)
+        run: npm run check
+      - name: Build static export
+        run: npm run build
+      - name: Prepare for GitHub Pages
+        run: node scripts/pages-postbuild.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
