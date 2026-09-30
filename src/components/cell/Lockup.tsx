@@ -33,9 +33,13 @@ export function Lockup({ variant = "standard", height = 28, assemble, className,
       data-assemble={assemble}
     >
       <MarkCells assemble={Boolean(assemble)} />
-      <g transform={`translate(${L.wordmark.x} ${L.wordmark.y})`} className="lk-word">
-        <path d={L.wordmark.d} fill="#FFFFFF" />
-        {variant === "customR" && L.wordmarkCell ? <path d={L.wordmarkCell} fill="#AB97FF" /> : null}
+      {/* the outer group is the wordmark's real position. The animation runs on the inner group only,
+          so a CSS transform can never replace this translate and leave the word stuck. */}
+      <g transform={`translate(${L.wordmark.x} ${L.wordmark.y})`}>
+        <g className="lk-word">
+          <path d={L.wordmark.d} fill="#FFFFFF" />
+          {variant === "customR" && L.wordmarkCell ? <path d={L.wordmarkCell} fill="#AB97FF" /> : null}
+        </g>
       </g>
     </svg>
   );

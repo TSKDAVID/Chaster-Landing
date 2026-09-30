@@ -700,20 +700,22 @@
     transform-origin: center;
   }
   @media (prefers-reduced-motion: no-preference) {
+    /* backwards, not both: after the animation the transform is dropped. Holding the last frame
+       (fill-mode: both) replaced the wordmark's own position and left it stuck. */
     :is(html.ch-a .lockup[data-assemble="session"], .is-in .lockup[data-assemble="view"]) .mk-cell {
-      animation: mk-fly 360ms var(--ease-move) both;
+      animation: mk-fly 360ms var(--ease-move) backwards;
       animation-delay: var(--delay, 0ms);
     }
     :is(html.ch-a .lockup[data-assemble="session"], .is-in .lockup[data-assemble="view"]) .mk-ring {
-      animation: mk-ring 240ms linear both;
+      animation: mk-ring 240ms linear backwards;
       animation-delay: 380ms;
     }
     :is(html.ch-a .lockup[data-assemble="session"], .is-in .lockup[data-assemble="view"]) .mk-fill {
-      animation: mk-fill 120ms linear both;
+      animation: mk-fill 120ms linear backwards;
       animation-delay: 560ms;
     }
     :is(html.ch-a .lockup[data-assemble="session"], .is-in .lockup[data-assemble="view"]) .lk-word {
-      animation: lk-word 360ms var(--ease-move) both;
+      animation: lk-word 360ms var(--ease-move) backwards;
       animation-delay: 620ms;
     }
     /* below the fold the cells wait, hidden, until the section is reached */

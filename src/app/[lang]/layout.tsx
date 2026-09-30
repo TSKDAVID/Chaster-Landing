@@ -48,7 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
  * The first visit of a session assembles the mark in the nav (§1.9). This runs before first paint, adds one class to
  * <html>, and is the only thing that decides; CSS does the animating. Stored per session, so it plays once.
  */
-const SESSION_ASSEMBLE = `try{if(!sessionStorage.getItem('ch_a')){sessionStorage.setItem('ch_a','1');document.documentElement.classList.add('ch-a')}}catch(e){}`;
+/** The header logo assembles on each page load. The class is what the CSS animation listens for. */
+const SESSION_ASSEMBLE = `document.documentElement.classList.add('ch-a')`;
 
 export default async function RootLayout({
   children,
